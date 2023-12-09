@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="css/home.css">
+  <title>MoodMinder</title>
+</head>
+
+<body class="cont">
+  <div class="content">
+    <h1 class="page-name text-dark">MoodMinder</h1>
+  </div>
+  <header class="page-header">
+    <div class="row">
+      <div class="col-12 d-flex justify-content-between header-title">
+        <div class="header-left">
+          <p>Hello, Costin 👋</p>
+        </div>
+        <div><input type="date" name="selectedDate" id="selectedDate"></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 p-0">
+        <div class="calendar">
+          <div class="header-box previous-day">
+            <p class="calendar-day" id="previous-day-3"></p>
+            <p class="calendar-date" id="previous-date-3"></p>
+            <p class="calendar-emoji">😌</p>
+          </div>
+          <div class="header-box previous-day">
+            <p class="calendar-day" id="previous-day-2"></p>
+            <p class="calendar-date" id="previous-date-2"></p>
+            <p class="calendar-emoji">🙁</p>
+          </div>
+          <div class="header-box previous-day">
+            <p class="calendar-day" id="previous-day-1"></p>
+            <p class="calendar-date" id="previous-date-1"></p>
+            <p class="calendar-emoji">😁</p>
+          </div>
+          <div class="header-box current-day">
+            <p class="calendar-day" id="current-day"></p>
+            <p class="calendar-date" id="current-date"></p>
+            <p class="calendar-emoji" id="current-emoji"></p>
+          </div>
+          <div class="header-box next-day">
+            <p class="calendar-day" id="next-day-1"></p>
+            <p class="calendar-date" id="next-date-1"></p>
+          </div>
+          <div class="header-box next-day">
+            <p class="calendar-day" id="next-day-2"></p>
+            <p class="calendar-date" id="next-date-2"></p>
+          </div>
+          <div class="header-box next-day">
+            <p class="calendar-day" id="next-day-3"></p>
+            <p class="calendar-date" id="next-date-3"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="header-right">
+      <p id="current-date"></p>
+    </div>
+  </header>
+
+  <!-- This code will show after the user adds their partner -->
+  <div class="container" id="moods">
+    <h1 class="subtitle text-dark">My mood history</h1>
+    <div id="mood-history-container"></div>
+
+    <h1 class="subtitle text-dark">My partner's moods</h1>
+    <div class="partner-card" id="partner-mood-container"></div>
+  </div>
+
+  <!-- This code will be shown if the user does not have a partner added -->
+  <div class="partnerInfo" id="partnerAdd">
+    <p class="partnerAddText ">Looks like you don't have a partner yet.</p>
+    <p class="partnerAddText">Add them now!</p>
+    <a href="search.html">
+      <img class="plusIcon" id="plusIcon" src="images/plusPartner.png" alt="Plus Icon">
+    </a>
+  </div>
+
+  <!-- This is the code to show or hide the moods -->
+  <script>
+    const hasPartner = localStorage.getItem('partnerData');
+
+    if (hasPartner) {
+      document.getElementById('moods').style.display = 'block';
+      document.getElementById('partnerAdd').style.display = 'none'
+    } else {
+      document.getElementById('moods').style.display = 'none';
+      document.getElementById('partnerAdd').style.display = 'block'
+    }
+  </script>
+
+  <script src="js/home.js"></script>
+
+  <!-- <nav class="bottom-nav">
+    <a href="#" class="nav-item">
+      <img src="images/home.png" alt="Home" class="nav-icon">
+      <span>Home</span>
+    </a>
+    <a href="AddMoodPage.html" class="nav-item">
+      <img src="images/plus.png" alt="Add Mood" class="nav-icon">
+      <span>Add Mood</span>
+    </a>
+    <a href="#" class="nav-item">
+      <img src="images/heart.png" alt="My Partner" class="nav-icon">
+      <span>My Partner</span>
+    </a>
+  </nav> -->
+  <nav class="navbar fixed-bottom ">
+    <div class="container-fluid">
+      <div class="row" style="width: 100%;">
+        <div class="col p-0">
+          <div class="button-box d-flex justify-content-around m-auto">
+            <a href="HomePage.html" type="button" class="btn btn-dark d-grid">
+              <i class="fas fa-home"></i>
+              Home
+            </a>
+            <a href="AddMoodPage.html" type="button" class="btn btn-dark btn-add d-grid">
+              <i class="fas fa-plus"></i> Add mood
+            </a>
+            <a href="search.html" type="button" class="btn btn-dark d-grid">
+              <i class="fas fa-user-friends"></i> My partner
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="preloader">
+    <div class="preloader-inner">
+      😉 <br> MoodMinder
+    </div>
+  </div>
+
+  <script src="js/scripts.js" type="text/javascript"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+    integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+    crossorigin="anonymous"></script>
+
+  <script>
+    document.getElementById('selectedDate').value = new Date().toISOString().split('T')[0];
+
+    document.addEventListener("DOMContentLoaded", function () {
+      var hasVisited = sessionStorage.getItem('hasVisited');
+
+      if (!hasVisited) {
+        document.querySelector('.preloader').style.opacity = 1;
+
+        setTimeout(function () {
+          var preloader = document.querySelector('.preloader');
+          preloader.style.opacity = 0;
+          setTimeout(function () {
+            preloader.style.display = 'none';
+          }, 300); 
+
+          sessionStorage.setItem('hasVisited', 'true');
+        }, 2000); 
+      }
+
+    });
+  </script>
+
+
+</body>
+
+</html>

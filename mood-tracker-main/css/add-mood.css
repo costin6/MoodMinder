@@ -1,0 +1,201 @@
+/* CSS for the "add-mood.html" page */
+body {
+    background-color: #444; /* Match the background color of the main page */
+    margin: 0;
+    font-family: arial, verdana;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.circle {
+    text-align: center;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    background-color: #9900cc; /* Set the circle color */
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    position: relative;
+    z-index: 1;
+}
+
+.emojis {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.emoji-btn {
+    border: none;
+    background: none;
+    font-size: 24px;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    position: absolute;
+}
+
+/* Adjust the positioning of the emojis */
+.emoji-top-left {
+    font-size: 60px;
+    top: -30px;
+    left: -30px;
+}
+
+.emoji-top-right {
+    font-size: 60px;
+    top: -30px;
+    right: -30px;
+}
+
+.emoji-bottom-right {
+    font-size: 60px;
+    bottom: -30px;
+    right: -30px;
+}
+
+.emoji-bottom-left {
+    font-size: 60px;
+    bottom: -30px;
+    left: -30px;
+}
+
+.emoji-center-top {
+    font-size: 60px;
+    top: -70px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.emoji-center-bottom {
+    font-size: 60px;
+    bottom: -70px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.modal-mood {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    z-index: 2; 
+
+}
+
+.modal-content-mood {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    color: black;
+}
+
+#response {
+    width: 150px;
+    height: 15px;
+    padding:20px;
+    margin: 10px 0;
+    border: 1px black solid;
+}
+
+button#submit {
+    background-color: #9900cc;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.pop-up-text{
+    font-size: 30px;
+    color: black;
+}
+
+.bottom-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #333;
+    color: #fff;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.nav-item {
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Style the icon images */
+.nav-icon {
+    width: 30px; /* Increase icon size to 30px */
+    height: 30px; /* Increase icon size to 30px */
+}
+
+/* Style the text */
+.nav-item span {
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* Adjust button positions */
+.nav-item:nth-child(2) {
+    margin-left: 20px; /* Add 20px to the left of "Add Mood" */
+}
+
+.nav-item:nth-child(1) {
+    order: -1; /* Place "Home" before "Add Mood" */
+}
+
+.nav-item:nth-child(3) {
+    margin-right: 20px; /* Add 20px to the right of "Add Mood" */
+}
+
+/* Media queries for responsive design */
+@media (max-width: 768px) {
+    .bottom-nav {
+        font-size: 16px;
+    }
+}

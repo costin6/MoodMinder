@@ -1,0 +1,17 @@
+{
+    "name": "My Progressive Web App",
+    "short_name": "My PWA",
+    "description": "A simple Progressive Web App example",
+    "start_url": "/index.html",
+    "display": "fullscreen",
+    "background_color": "#ffffff",
+    "theme_color": "#0077cc",
+    "icons": [
+      {
+        "src": "/facebook.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ]
+  }
+  
